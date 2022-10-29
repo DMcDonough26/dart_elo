@@ -4,6 +4,10 @@ def load_files(league):
     # load the dataframes
     full_player_df = pd.read_csv('players.csv')
     full_match_df = pd.read_csv('matches.csv')
+    preview_df = pd.read_csv('preview.csv')
+
+    full_player_df['date'] = pd.to_datetime(full_player_df['date'])
+    full_match_df['date'] = pd.to_datetime(full_match_df['date'])
 
     # filter to most recent night
     max_date_player = full_player_df['date'].max()
@@ -11,7 +15,7 @@ def load_files(league):
     match_df = full_match_df[(full_match_df['date']==max_date_match)&(full_match_df['league']==league)].copy()
     player_df = full_player_df[(full_player_df['date']==max_date_player)&(full_player_df['league']==league)].copy()
 
-    return player_df, match_df
+    return player_df, match_df, preview_df
 
 def prep_player_file(player_df):
     scoring_dict = dict(zip(player_df['player_id'],player_df['rating']))
@@ -49,7 +53,7 @@ def update_team_elo(x,k,team='Away'):
         x['home_new'] = k * (x['home_score']-x['home_exp'])
         return x['home_new']
 
-def prep_match_file(match_df,scoring_dict,k):
+def prep_match_file(match_df,scoring_dict,k,match=True):
     # calculate team elos
     match_df['away_elo'] = match_df['away_players'].apply(calc_team_elo, args=(scoring_dict,))
     match_df['home_elo'] = match_df['home_players'].apply(calc_team_elo, args=(scoring_dict,))
@@ -58,9 +62,15 @@ def prep_match_file(match_df,scoring_dict,k):
     match_df['away_exp'] = match_df.apply(calc_expected_values,axis=1,args=('Away',))
     match_df['home_exp'] = match_df.apply(calc_expected_values,axis=1,args=('Home',))
 
-    # calculate new team elos
-    match_df['away_new'] = match_df.apply(update_team_elo, axis=1, args=(k,'Away'))
-    match_df['home_new'] = match_df.apply(update_team_elo, axis=1, args=(k,'Home'))
+    if match==True:
+        # calculate new team elos
+        match_df['away_new'] = match_df.apply(update_team_elo, axis=1, args=(k,'Away'))
+        match_df['home_new'] = match_df.apply(update_team_elo, axis=1, args=(k,'Home'))
+
+    else:
+        # calculate expected values
+        match_df['away_exp'] = match_df['away_exp'].round(2)
+        match_df['home_exp'] = match_df['home_exp'].round(2)
 
     return match_df
 
@@ -101,6 +111,15 @@ def write_files(player_df, date, scoring_dict):
     combined_df = pd.concat([original_df,new_df],axis=0)
     combined_df.to_csv('players.csv',index=False)
 
+def prep_preview(preview_df,scoring_dict,k,match_mode,player_df):
+    preview_df = prep_match_file(preview_df,scoring_dict,k,match_mode)
+    preview_df = preview_df.merge(player_df[['player_id','name']],left_on='away_players',right_on='player_id')
+    preview_df = preview_df.merge(player_df[['player_id','name']],left_on='home_players',right_on='player_id')
+    preview_df = preview_df[['name_x','name_y','away_elo','home_elo','away_exp','home_exp']].copy()
+    preview_df.columns = ['Away Player','Home Player','Away ELO','Home ELO','Away Win Prob','Home Win Prob']
+    return preview_df
+
+
 
 # TODO: need an arg parse for league name, k value, date
 # TODO: sqlite database
@@ -109,12 +128,21 @@ def write_files(player_df, date, scoring_dict):
 def main():
     league = input('Which league?\n')
     k = int(input('What k value?\n'))
+    # date is used only to provide a new effective date for player ratings
     date = input('New date?\n')
-    player_df, match_df = load_files(league)
+    mode = input('Which Mode?\n1. Scoring\n2. Preview\n')
+    player_df, match_df, preview_df = load_files(league)
     scoring_dict = prep_player_file(player_df)
     match_df = prep_match_file(match_df,scoring_dict,k)
-    scoring_dict = update_player_elo(match_df,scoring_dict,'Away')
-    scoring_dict = update_player_elo(match_df,scoring_dict,'Home')
-    write_files(player_df,date,scoring_dict)
+    if mode == '2':
+        preview_df = prep_preview(preview_df,scoring_dict,k,False,player_df)
+        print('\nUpcoming Games:\n')
+        print(preview_df)
+        print('\nCurrent Standings:\n')
+        print(player_df.sort_values(by='rating',ascending=False))
+    elif mode == '1':
+        scoring_dict = update_player_elo(match_df,scoring_dict,'Away')
+        scoring_dict = update_player_elo(match_df,scoring_dict,'Home')
+        write_files(player_df,date,scoring_dict)
 
 main()
