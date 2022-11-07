@@ -1,4 +1,8 @@
 import pandas as pd
+from bokeh.models import ColumnDataSource, Button
+from bokeh.models.widgets import DataTable, TableColumn, Panel, Tabs, Div, Button
+from bokeh.io import output_file, show
+from bokeh.layouts import column, Spacer, layout
 
 def load_files(league):
     # load the dataframes
@@ -120,6 +124,38 @@ def prep_preview(preview_df,scoring_dict,k,match_mode,player_df):
     return preview_df
 
 
+# bokeh
+def launch_bokeh(preview_df, player_df, league):
+
+    # upcoming matches
+    div1 = Div(
+        text="""
+            <p>Upcoming Matches:</p>
+            """,
+    width=900,
+    height=30,
+    )
+
+    c1 = [TableColumn(field=Ci, title=Ci) for Ci in preview_df.columns] # bokeh columns
+    d1 = DataTable(columns=c1, source=ColumnDataSource(preview_df),width=800,height=(preview_df.shape[0]+1)*30) # bokeh table
+
+    # player ratings
+    div2 = Div(
+        text="""
+            <p>Current Player Ratings:</p>
+            """,
+    width=900,
+    height=30,
+    )
+
+    player_df.sort_values(by='rating',ascending=False,inplace=True)
+
+    c2 = [TableColumn(field=Ci, title=Ci) for Ci in player_df.columns] # bokeh columns
+    d2 = DataTable(columns=c2, source=ColumnDataSource(player_df),width=800,height=(player_df.shape[0]+1)*30) # bokeh table
+
+    # curdoc().add_root(Tabs(tabs=[Panel(child=layout([column(button,div0,div1,d1, Spacer(width=0, height=10), div2,d2, Spacer(width=0, height=10), div3,d3)], sizing_mode='fixed'), title="NBA Scoreboard")],sizing_mode='scale_height'))
+    show(Tabs(tabs=[Panel(child=layout([column(div1,d1, Spacer(width=0, height=10), div2,d2)], sizing_mode='fixed'), title=league)],sizing_mode='scale_height'))
+
 
 # TODO: need an arg parse for league name, k value, date
 # TODO: sqlite database
@@ -136,10 +172,11 @@ def main():
     match_df = prep_match_file(match_df,scoring_dict,k)
     if mode == '2':
         preview_df = prep_preview(preview_df,scoring_dict,k,False,player_df)
-        print('\nUpcoming Games:\n')
-        print(preview_df)
-        print('\nCurrent Standings:\n')
-        print(player_df.sort_values(by='rating',ascending=False))
+        # print('\nUpcoming Games:\n')
+        # print(preview_df)
+        # print('\nCurrent Standings:\n')
+        # print(player_df.sort_values(by='rating',ascending=False))
+        launch_bokeh(preview_df, player_df, league)
     elif mode == '1':
         scoring_dict = update_player_elo(match_df,scoring_dict,'Away')
         scoring_dict = update_player_elo(match_df,scoring_dict,'Home')

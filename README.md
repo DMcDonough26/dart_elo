@@ -6,6 +6,7 @@ Python script to create elo ratings for my dart league
 ## elo.py
 - python script for processing updated elo ratings based on existing player ratings and match data
 - will ask for inputs on league (in case players compete against multiple peer groups), k value (I've used 20 so that evenly matched games result in +/- 10 points), and date for latest game
+- I've also added a preview mode, which shows upcoming matches with projected win probabilities as well as the latest ratings in a bokeh visualization (better charts are a planned enhancement)
 
 ## matches
 - captures game, date, player, and result data
