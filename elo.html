@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bokeh Plot</title>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js"></script>
+    <script type="text/javascript">
+        Bokeh.set_log_level("info");
+    </script>
+  </head>
+  <body>
+    <div class="bk-root" id="9030bed4-b534-423d-b1ed-65b563e2f3d8" data-root-id="1027"></div>
+  
+    <script type="application/json" id="1336">
+      {"78bc5884-deb6-4ffe-b866-cde95badb273":{"defs":[],"roots":{"references":[{"attributes":{},"id":"1052","type":"StringFormatter"},{"attributes":{},"id":"1032","type":"StringFormatter"},{"attributes":{"editor":{"id":"1039"},"field":"Home Win Prob","formatter":{"id":"1038"},"title":"Home Win Prob"},"id":"1007","type":"TableColumn"},{"attributes":{"height":10,"width":0},"id":"1023","type":"Spacer"},{"attributes":{},"id":"1053","type":"StringEditor"},{"attributes":{},"id":"1035","type":"StringEditor"},{"attributes":{"editor":{"id":"1037"},"field":"Away Win Prob","formatter":{"id":"1036"},"title":"Away Win Prob"},"id":"1006","type":"TableColumn"},{"attributes":{},"id":"1033","type":"StringEditor"},{"attributes":{},"id":"1054","type":"UnionRenderers"},{"attributes":{"columns":[{"id":"1002"},{"id":"1003"},{"id":"1004"},{"id":"1005"},{"id":"1006"},{"id":"1007"}],"height":150,"source":{"id":"1008"},"view":{"id":"1011"},"width":800},"id":"1009","type":"DataTable"},{"attributes":{},"id":"1036","type":"StringFormatter"},{"attributes":{},"id":"1055","type":"Selection"},{"attributes":{"source":{"id":"1008"}},"id":"1011","type":"CDSView"},{"attributes":{"editor":{"id":"1033"},"field":"Away ELO","formatter":{"id":"1032"},"title":"Away ELO"},"id":"1004","type":"TableColumn"},{"attributes":{"editor":{"id":"1043"},"field":"player_id","formatter":{"id":"1042"},"title":"player_id"},"id":"1013","type":"TableColumn"},{"attributes":{},"id":"1037","type":"StringEditor"},{"attributes":{"child":{"id":"1025"},"title":"Cyber"},"id":"1026","type":"Panel"},{"attributes":{},"id":"1038","type":"StringFormatter"},{"attributes":{"editor":{"id":"1045"},"field":"name","formatter":{"id":"1044"},"title":"name"},"id":"1014","type":"TableColumn"},{"attributes":{"sizing_mode":"scale_height","tabs":[{"id":"1026"}]},"id":"1027","type":"Tabs"},{"attributes":{},"id":"1039","type":"StringEditor"},{"attributes":{"height":30,"text":"\n            &lt;p&gt;Upcoming Matches:&lt;/p&gt;\n            ","width":900},"id":"1001","type":"Div"},{"attributes":{},"id":"1040","type":"UnionRenderers"},{"attributes":{"height":30,"text":"\n            &lt;p&gt;Current Player Ratings:&lt;/p&gt;\n            ","width":900},"id":"1012","type":"Div"},{"attributes":{},"id":"1041","type":"Selection"},{"attributes":{"data":{"date":{"__ndarray__":"AAAAaLVCeEIAAABotUJ4QgAAAGi1QnhCAAAAaLVCeEIAAABotUJ4QgAAAGi1QnhCAAAAaLVCeEIAAABotUJ4Qg==","dtype":"float64","order":"little","shape":[8]},"index":[54,55,48,52,50,51,49,53],"league":["Cyber","Cyber","Cyber","Cyber","Cyber","Cyber","Cyber","Cyber"],"name":["Mike","Norm","Harold","Ken","Dan","Greg","Brian S","Kevin"],"player_id":[7,8,1,5,3,4,2,6],"rating":{"__ndarray__":"AAAAAACQmkAAAAAAAMyYQAAAAAAAgJhAAAAAAABomEAAAAAAAKSWQAAAAAAAjJZAAAAAAACUlUAAAAAAAMiUQA==","dtype":"float64","order":"little","shape":[8]},"team":["Cyber","Cyber","Cyber","Cyber","Cyber","Cyber","Cyber","Cyber"]},"selected":{"id":"1055"},"selection_policy":{"id":"1054"}},"id":"1019","type":"ColumnDataSource"},{"attributes":{},"id":"1034","type":"StringFormatter"},{"attributes":{},"id":"1042","type":"StringFormatter"},{"attributes":{"data":{"Away ELO":{"__ndarray__":"AAAAAACklkAAAAAAAICYQAAAAAAAyJRAAAAAAACQmkA=","dtype":"float64","order":"little","shape":[4]},"Away Player":["Dan","Harold","Kevin","Mike"],"Away Win Prob":{"__ndarray__":"w/UoXI/C1T8AAAAAAADoP1K4HoXrUcg/7FG4HoXr6T8=","dtype":"float64","order":"little","shape":[4]},"Home ELO":{"__ndarray__":"AAAAAABomEAAAAAAAJSVQAAAAAAAzJhAAAAAAACMlkA=","dtype":"float64","order":"little","shape":[4]},"Home Player":["Ken","Brian S","Norm","Greg"],"Home Win Prob":{"__ndarray__":"H4XrUbge5T8AAAAAAADQP+xRuB6F6+k/UrgehetRyD8=","dtype":"float64","order":"little","shape":[4]},"index":[0,1,2,3]},"selected":{"id":"1041"},"selection_policy":{"id":"1040"}},"id":"1008","type":"ColumnDataSource"},{"attributes":{},"id":"1043","type":"StringEditor"},{"attributes":{"editor":{"id":"1047"},"field":"league","formatter":{"id":"1046"},"title":"league"},"id":"1015","type":"TableColumn"},{"attributes":{},"id":"1044","type":"StringFormatter"},{"attributes":{"editor":{"id":"1031"},"field":"Home Player","formatter":{"id":"1030"},"title":"Home Player"},"id":"1003","type":"TableColumn"},{"attributes":{"editor":{"id":"1049"},"field":"team","formatter":{"id":"1048"},"title":"team"},"id":"1016","type":"TableColumn"},{"attributes":{"editor":{"id":"1035"},"field":"Home ELO","formatter":{"id":"1034"},"title":"Home ELO"},"id":"1005","type":"TableColumn"},{"attributes":{},"id":"1045","type":"StringEditor"},{"attributes":{"editor":{"id":"1051"},"field":"date","formatter":{"id":"1050"},"title":"date"},"id":"1017","type":"TableColumn"},{"attributes":{},"id":"1046","type":"StringFormatter"},{"attributes":{"editor":{"id":"1053"},"field":"rating","formatter":{"id":"1052"},"title":"rating"},"id":"1018","type":"TableColumn"},{"attributes":{},"id":"1047","type":"StringEditor"},{"attributes":{},"id":"1028","type":"StringFormatter"},{"attributes":{"columns":[{"id":"1013"},{"id":"1014"},{"id":"1015"},{"id":"1016"},{"id":"1017"},{"id":"1018"}],"height":270,"source":{"id":"1019"},"view":{"id":"1022"},"width":800},"id":"1020","type":"DataTable"},{"attributes":{},"id":"1048","type":"StringFormatter"},{"attributes":{},"id":"1029","type":"StringEditor"},{"attributes":{"source":{"id":"1019"}},"id":"1022","type":"CDSView"},{"attributes":{},"id":"1049","type":"StringEditor"},{"attributes":{"children":[{"id":"1024"}],"sizing_mode":"fixed"},"id":"1025","type":"Column"},{"attributes":{},"id":"1030","type":"StringFormatter"},{"attributes":{"children":[{"id":"1001"},{"id":"1009"},{"id":"1023"},{"id":"1012"},{"id":"1020"}],"sizing_mode":"fixed"},"id":"1024","type":"Column"},{"attributes":{},"id":"1050","type":"StringFormatter"},{"attributes":{"editor":{"id":"1029"},"field":"Away Player","formatter":{"id":"1028"},"title":"Away Player"},"id":"1002","type":"TableColumn"},{"attributes":{},"id":"1031","type":"StringEditor"},{"attributes":{},"id":"1051","type":"StringEditor"}],"root_ids":["1027"]},"title":"Bokeh Application","version":"2.4.3"}}
+    </script>
+    <script type="text/javascript">
+      (function() {
+        const fn = function() {
+          Bokeh.safely(function() {
+            (function(root) {
+              function embed_document(root) {
+              const docs_json = document.getElementById('1336').textContent;
+              const render_items = [{"docid":"78bc5884-deb6-4ffe-b866-cde95badb273","root_ids":["1027"],"roots":{"1027":"9030bed4-b534-423d-b1ed-65b563e2f3d8"}}];
+              root.Bokeh.embed.embed_items(docs_json, render_items);
+              }
+              if (root.Bokeh !== undefined) {
+                embed_document(root);
+              } else {
+                let attempts = 0;
+                const timer = setInterval(function(root) {
+                  if (root.Bokeh !== undefined) {
+                    clearInterval(timer);
+                    embed_document(root);
+                  } else {
+                    attempts++;
+                    if (attempts > 100) {
+                      clearInterval(timer);
+                      console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                    }
+                  }
+                }, 10, root)
+              }
+            })(window);
+          });
+        };
+        if (document.readyState != "loading") fn();
+        else document.addEventListener("DOMContentLoaded", fn);
+      })();
+    </script>
+  </body>
+</html>
