@@ -42,7 +42,7 @@ match_id,game_id,league,date,game,away_players,home_players,away_score,home_scor
 9,41,Cyber,10/3/2022,501,4,1,0,1
 9,42,Cyber,10/3/2022,Cricket,4,1,0,1
 9,43,Cyber,10/3/2022,301,4,1,0,1
-9,44,Cyber,10/3/2022,Spanish,4,1,1,1
+9,44,Cyber,10/3/2022,Spanish,4,1,1,0
 9,45,Cyber,10/3/2022,Minnesota,4,1,0,1
 10,46,Cyber,10/3/2022,501,5,2,0,1
 10,47,Cyber,10/3/2022,Cricket,5,2,1,0
@@ -154,18 +154,3 @@ match_id,game_id,league,date,game,away_players,home_players,away_score,home_scor
 31,153,Cyber,11/7/2022,301,1,2,1,0
 31,154,Cyber,11/7/2022,Spanish,1,2,1,0
 31,155,Cyber,11/7/2022,Minnesota,1,2,1,0
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,
-,,,,,,,,

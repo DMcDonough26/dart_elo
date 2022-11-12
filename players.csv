@@ -23,7 +23,7 @@ player_id,name,league,team,date,rating
 6,Kevin,Cyber,Cyber,9/26/2022,1454.0
 7,Mike,Cyber,Cyber,9/26/2022,1597.0
 8,Norm,Cyber,Cyber,9/26/2022,1546.0
-1,Harold,Cyber,Cyber,10/3/2022,1530.0
+1,Harold,Cyber,Cyber,10/3/2022,1510.0
 2,Brian S,Cyber,Cyber,10/3/2022,1415.0
 3,Dan,Cyber,Cyber,10/3/2022,1507.0
 4,Greg,Cyber,Cyber,10/3/2022,1436.0
@@ -31,35 +31,43 @@ player_id,name,league,team,date,rating
 6,Kevin,Cyber,Cyber,10/3/2022,1404.0
 7,Mike,Cyber,Cyber,10/3/2022,1597.0
 8,Norm,Cyber,Cyber,10/3/2022,1546.0
-1,Harold,Cyber,Cyber,10/10/2022,1502.0
+1,Harold,Cyber,Cyber,10/10/2022,1485.0
 2,Brian S,Cyber,Cyber,10/10/2022,1398.0
 3,Dan,Cyber,Cyber,10/10/2022,1524.0
 4,Greg,Cyber,Cyber,10/10/2022,1461.0
 5,Ken,Cyber,Cyber,10/10/2022,1557.0
 6,Kevin,Cyber,Cyber,10/10/2022,1379.0
 7,Mike,Cyber,Cyber,10/10/2022,1668.0
-8,Norm,Cyber,Cyber,10/10/2022,1531.0
-1,Harold,Cyber,Cyber,10/24/2022,1535.0
-2,Brian S,Cyber,Cyber,10/24/2022,1397.0
-3,Dan,Cyber,Cyber,10/24/2022,1491.0
-4,Greg,Cyber,Cyber,10/24/2022,1462.0
-5,Ken,Cyber,Cyber,10/24/2022,1543.0
-6,Kevin,Cyber,Cyber,10/24/2022,1363.0
-7,Mike,Cyber,Cyber,10/24/2022,1684.0
-8,Norm,Cyber,Cyber,10/24/2022,1545.0
-1,Harold,Cyber,Cyber,10/31/2022,1562.0
-2,Brian S,Cyber,Cyber,10/31/2022,1381.0
-3,Dan,Cyber,Cyber,10/31/2022,1449.0
-4,Greg,Cyber,Cyber,10/31/2022,1443.0
+8,Norm,Cyber,Cyber,10/10/2022,1528.0
+1,Harold,Cyber,Cyber,10/17/2022,1485.0
+2,Brian S,Cyber,Cyber,10/17/2022,1425.0
+3,Dan,Cyber,Cyber,10/17/2022,1494.0
+4,Greg,Cyber,Cyber,10/17/2022,1441.0
+5,Ken,Cyber,Cyber,10/17/2022,1557.0
+6,Kevin,Cyber,Cyber,10/17/2022,1352.0
+7,Mike,Cyber,Cyber,10/17/2022,1698.0
+8,Norm,Cyber,Cyber,10/17/2022,1548.0
+1,Harold,Cyber,Cyber,10/24/2022,1516.0
+2,Brian S,Cyber,Cyber,10/24/2022,1417.0
+3,Dan,Cyber,Cyber,10/24/2022,1463.0
+4,Greg,Cyber,Cyber,10/24/2022,1449.0
+5,Ken,Cyber,Cyber,10/24/2022,1546.0
+6,Kevin,Cyber,Cyber,10/24/2022,1340.0
+7,Mike,Cyber,Cyber,10/24/2022,1710.0
+8,Norm,Cyber,Cyber,10/24/2022,1559.0
+1,Harold,Cyber,Cyber,10/31/2022,1543.0
+2,Brian S,Cyber,Cyber,10/31/2022,1401.0
+3,Dan,Cyber,Cyber,10/31/2022,1426.0
+4,Greg,Cyber,Cyber,10/31/2022,1433.0
 5,Ken,Cyber,Cyber,10/31/2022,1562.0
-6,Kevin,Cyber,Cyber,10/31/2022,1336.0
-7,Mike,Cyber,Cyber,10/31/2022,1700.0
-8,Norm,Cyber,Cyber,10/31/2022,1587.0
-1,Harold,Cyber,Cyber,11/7/2022,1588.0
-2,Brian S,Cyber,Cyber,11/7/2022,1355.0
-3,Dan,Cyber,Cyber,11/7/2022,1435.0
-4,Greg,Cyber,Cyber,11/7/2022,1444.0
-5,Ken,Cyber,Cyber,11/7/2022,1576.0
-6,Kevin,Cyber,Cyber,11/7/2022,1337.0
-7,Mike,Cyber,Cyber,11/7/2022,1699.0
-8,Norm,Cyber,Cyber,11/7/2022,1586.0
+6,Kevin,Cyber,Cyber,10/31/2022,1313.0
+7,Mike,Cyber,Cyber,10/31/2022,1726.0
+8,Norm,Cyber,Cyber,10/31/2022,1596.0
+1,Harold,Cyber,Cyber,11/7/2022,1574.0
+2,Brian S,Cyber,Cyber,11/7/2022,1370.0
+3,Dan,Cyber,Cyber,11/7/2022,1415.0
+4,Greg,Cyber,Cyber,11/7/2022,1437.0
+5,Ken,Cyber,Cyber,11/7/2022,1573.0
+6,Kevin,Cyber,Cyber,11/7/2022,1317.0
+7,Mike,Cyber,Cyber,11/7/2022,1722.0
+8,Norm,Cyber,Cyber,11/7/2022,1592.0

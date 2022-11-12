@@ -17,6 +17,22 @@ def load_files(league):
     full_match_df = pd.read_csv('matches.csv')
     preview_df = pd.read_csv('preview.csv')
 
+    # check data quality
+    if ((full_match_df['match_id'].max()*5) == len(full_match_df)):
+        pass
+    else:
+        print('Incorrect number of games')
+        print(full_match_df['match_id'].max()*5)
+        print(len(full_match_df))
+
+    if ((full_match_df['away_score'].sum() + full_match_df['home_score'].sum()) == len(full_match_df)):
+        pass
+    else:
+        print('Incorrect number of winners')
+        print(full_match_df['away_score'].sum())
+        print(full_match_df['home_score'].sum())
+        print(len(full_match_df))
+
     full_player_df['date'] = pd.to_datetime(full_player_df['date'])
     full_match_df['date'] = pd.to_datetime(full_match_df['date'])
 
@@ -120,6 +136,12 @@ def write_files(player_df, date, scoring_dict):
     new_rating_df = pd.DataFrame({'player_id':scoring_dict.keys(),'rating':scoring_dict.values()})
     new_df = new_df.merge(new_rating_df,on='player_id')
     combined_df = pd.concat([original_df,new_df],axis=0)
+
+    if combined_df['rating'].mean() == 1500:
+        pass
+    else:
+        print('Ratings are no longer symmetrical')
+
     combined_df.to_csv('players.csv',index=False)
 
 def prep_preview(preview_df,scoring_dict,k,match_mode,player_df):
