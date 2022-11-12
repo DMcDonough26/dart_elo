@@ -6,6 +6,7 @@ from bokeh.layouts import column, Spacer, layout, row
 from bokeh.plotting import figure, show
 from bokeh.palettes import Category20c
 from bokeh.transform import cumsum
+from bokeh.models.annotations import Label
 
 from collections import Counter
 from math import pi
@@ -191,7 +192,8 @@ def ratings_plot(df):
     p.vbar(x=df['name'], top=df['rating'], width=0.9, fill_color=Category20c[10][8])
 
     p.xgrid.grid_line_color = None
-    p.y_range.start = 1300
+    p.y_range.start = round(df['rating'].min(),-2)-100
+    p.y_range.end = round(df['rating'].max(),-2)+100
 
     # p.axis.axis_label=None
     # p.axis.visible=False
@@ -199,10 +201,10 @@ def ratings_plot(df):
 
     source = ColumnDataSource(dict(x=df['name'],y=df['rating']))
 
-    # labels = LabelSet(x='x', y='y', text='y', level='glyph',
-        # x_offset=-13.5, y_offset=0, source=source, render_mode='canvas')
-
-    # p.add_layout(labels)
+    for i in range(len(df)):
+        rating = int(df.reset_index().iloc[i]['rating'])
+        label = Label(x=i, y=rating, x_offset=30, y_offset=10, text=str(rating))
+        p.add_layout(label)
 
     return p
 
