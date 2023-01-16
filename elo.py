@@ -11,6 +11,7 @@ from bokeh.models.annotations import Label
 from collections import Counter
 from math import pi
 
+from scipy.stats import binom
 
 def load_files(league):
     # load the dataframes
@@ -151,6 +152,8 @@ def prep_preview(preview_df,scoring_dict,k,match_mode,player_df):
     preview_df = preview_df.merge(player_df[['player_id','name']],left_on='home_players',right_on='player_id')
     preview_df = preview_df[['name_x','name_y','away_elo','home_elo','away_exp','home_exp']].copy()
     preview_df.columns = ['Away Player','Home Player','Away ELO','Home ELO','Away Win Prob','Home Win Prob']
+    preview_df['Away Win Prob'] = preview_df['Away Win Prob'].apply(lambda x: 1-binom.cdf(2.5,5,x))
+    preview_df['Home Win Prob'] = preview_df['Home Win Prob'].apply(lambda x: 1-binom.cdf(2.5,5,x))
     return preview_df
 
 
@@ -162,7 +165,7 @@ def matchup_plot(df,player_df):
     data = pd.DataFrame.from_dict(dict(x), orient='index').reset_index().rename(index=str, columns={0:'Win Probability', 'index':'Player'})
     data['angle'] = data['Win Probability']/sum(x.values()) * 2*pi
     data['color'] = (Category20c[6][1],Category20c[6][5])
-    data['leg_val'] = data.apply(lambda x: x['Player']+': '+str(int(x['Win Probability']*100))+"%",axis=1)
+    data['leg_val'] = data.apply(lambda x: x['Player']+': '+str(int(round(x['Win Probability']*100,0)))+"%",axis=1)
 
 
     # # Plotting code
