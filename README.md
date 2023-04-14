@@ -10,11 +10,11 @@ Python script to create elo ratings for my dart league
 ## data_prep.py
 - parse arguments, loads and prepares historical match/player data
 
-## scoring
+## scoring.py
 - handles the mechanics of scoring games (calculating team ELOs, match expected values, preparing the match dataframe,
   updating the player ratings, and writing out new player ratings)
 
-## plotting
+## plotting.py
 - I've also added a preview mode, which shows upcoming matches with projected win probabilities as well as the latest ratings in a bokeh visualization (adding a line chart for ratings over time is a planned enhancement)
 
 ## matches
