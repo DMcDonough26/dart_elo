@@ -344,3 +344,13 @@ match_id,game_id,league,date,game,away_players,home_players,away_score,home_scor
 69,343,Cyber,4/10/2023,301,3,1,0,1
 69,344,Cyber,4/10/2023,Spanish,3,1,0,1
 69,345,Cyber,4/10/2023,Minnesota,3,1,1,0
+70,346,Cyber,4/17/2023,501,7,1,1,0
+70,347,Cyber,4/17/2023,Cricket,7,1,0,1
+70,348,Cyber,4/17/2023,301,7,1,1,0
+70,349,Cyber,4/17/2023,Spanish,7,1,0,1
+70,350,Cyber,4/17/2023,Minnesota,7,1,1,0
+71,351,Cyber,4/17/2023,501,3,9,0,1
+71,352,Cyber,4/17/2023,Cricket,3,9,0,1
+71,353,Cyber,4/17/2023,301,3,9,1,0
+71,354,Cyber,4/17/2023,Spanish,3,9,0,1
+71,355,Cyber,4/17/2023,Minnesota,3,9,1,0

@@ -57,7 +57,7 @@ def load_files(league):
     match_df = full_match_df[(full_match_df['date']==max_date_match)&(full_match_df['league']==league)].copy()
     player_df = full_player_df[(full_player_df['date']==max_date_player)&(full_player_df['league']==league)].copy()
 
-    return player_df, match_df, preview_df
+    return player_df, match_df, preview_df, full_player_df
 
 def prep_player_file(player_df):
     scoring_dict = dict(zip(player_df['player_id'],player_df['rating']))

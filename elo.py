@@ -31,11 +31,11 @@ def main():
     # date = input('New date?\n')
 
     mode = input('Which Mode?\n1. Scoring\n2. Preview\n')
-    player_df, match_df, preview_df = load_files(league)
+    player_df, match_df, preview_df, full_player_df = load_files(league)
     scoring_dict = prep_player_file(player_df)
     if mode == '2':
         preview_df = prep_preview(preview_df,scoring_dict,k,False,player_df)
-        launch_bokeh(preview_df, player_df, league)
+        launch_bokeh(preview_df, player_df, league, full_player_df)
     elif mode == '1':
         match_df = prep_match_file(match_df,scoring_dict,k)
         scoring_dict = update_player_elo(match_df,scoring_dict,'Away')

@@ -16,6 +16,7 @@ import argparse
 
 from scoring import prep_match_file
 
+from random import sample
 
 def prep_preview(preview_df,scoring_dict,k,match_mode,player_df):
     preview_df = prep_match_file(preview_df,scoring_dict,k,match_mode)
@@ -82,30 +83,41 @@ def ratings_plot(df):
 
     return p
 
+def historical_plot(full_player_df):
+    graph_df = pd.crosstab(full_player_df['date'],full_player_df['name'],full_player_df['rating'],aggfunc='sum')
+
+    p = figure(title='Historical Scores', x_axis_label='Week', y_axis_label='Rating')
+
+    color_list = ['black','blue','brown','darkgreen','darksalmon','yellow','lightgreen','lightskyblue','orange','pink','purple','red']
+    keep_colors = sample(color_list,len(graph_df.columns))
+
+    for i, player in enumerate(graph_df.columns):
+        p.line(range(len(graph_df.index.values)), graph_df[player], legend_label=player, color=keep_colors[i], line_width=3)
+
+    p.xgrid.grid_line_color = None
+    p.grid.grid_line_color = None
+
+    p.legend.location = 'top_left'
+
+    return p
+
 # bokeh
-def launch_bokeh(preview_df, player_df, league):
+def launch_bokeh(preview_df, player_df, league, full_player_df):
 
     # player ratings
     div1 = Div(text="""<p>Current Player Ratings:</p>""",width=900,height=30)
-
     player_df.sort_values(by='rating',ascending=False,inplace=True)
-
-    # c1 = [TableColumn(field=Ci, title=Ci) for Ci in player_df.columns] # bokeh columns
-    # d1 = DataTable(columns=c1, source=ColumnDataSource(player_df),width=800,height=(player_df.shape[0]+1)*30) # bokeh table
-
     p0 = ratings_plot(player_df)
 
     # upcoming matches
     div2 = Div(text="""<p>Upcoming Matches:</p>""",width=900,height=30)
-
-    # c1 = [TableColumn(field=Ci, title=Ci) for Ci in preview_df.columns] # bokeh columns
-    # d1 = DataTable(columns=c1, source=ColumnDataSource(preview_df),width=800,height=(preview_df.shape[0]+1)*30) # bokeh table
-
     p1 = matchup_plot(preview_df.iloc[0],player_df)
     p2 = matchup_plot(preview_df.iloc[1],player_df)
     p3 = matchup_plot(preview_df.iloc[2],player_df)
-    # p4 = matchup_plot(preview_df.iloc[3],player_df)
 
-    # curdoc().add_root(Tabs(tabs=[Panel(child=layout([column(button,div0,div1,d1, Spacer(width=0, height=10), div2,d2, Spacer(width=0, height=10), div3,d3)], sizing_mode='fixed'), title="NBA Scoreboard")],sizing_mode='scale_height'))
-    # show(Tabs(tabs=[Panel(child=layout([column(div1,p0,div2,row(p1,p2),row(p3,p4))], sizing_mode='fixed'), title=league)],sizing_mode='scale_height'))
-    show(Tabs(tabs=[Panel(child=layout([column(div1,p0,div2,row(p1,p2),row(p3))], sizing_mode='fixed'), title=league)],sizing_mode='scale_height'))
+    # add code for line chart
+    div3 = Div(text="""<p>Historical Ratings:</p>""",width=900,height=30)
+    p4 = historical_plot(full_player_df)
+
+    # show final
+    show(Tabs(tabs=[Panel(child=layout([column(div1,p0,div2,row(p1,p2),row(p3),div3,p4)], sizing_mode='fixed'), title=league)],sizing_mode='scale_height'))
